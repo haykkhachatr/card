@@ -6,6 +6,7 @@
 <meta name="color-scheme" content="light dark">
 <title>Hayk Khachatryan</title>
 <link rel="icon" href="data:,">
+<script>if (/Android/i.test(navigator.userAgent)) document.documentElement.classList.add("android");</script>
 <style>
   :root { --bg:#f3f5f8; --surface:#fff; --text:#14181d; --muted:#5b6572; --line:#d9dee5; --accent:#0b6bcb; --accent-text:#fff; }
   @media (prefers-color-scheme: dark) {
@@ -21,6 +22,11 @@
   .role { text-align:center; color:var(--muted); margin:4px 0 0; }
   .btn { display:block; text-align:center; text-decoration:none; font-weight:700; font-size:1.0625rem;
          background:var(--accent); color:var(--accent-text); border-radius:12px; padding:14px 16px; margin:20px 0 8px; }
+  .android-only { display:none; }
+  .android .android-only { display:block; }
+  .android .not-android { display:none; }
+  .hint { text-align:center; color:var(--muted); font-size:0.875rem; margin:0 0 4px; }
+  .link { text-align:center; color:var(--muted); font-size:0.875rem; padding:8px; text-decoration:underline; }
   ul { list-style:none; margin:16px 0 0; padding:0; }
   li { border-top:1px solid var(--line); }
   li a, li span { display:block; padding:12px 4px; color:var(--text); text-decoration:none; overflow-wrap:anywhere; }
@@ -34,7 +40,10 @@
     <div class="avatar" aria-hidden="true">HK</div>
     <h1>Hayk Khachatryan</h1>
     
-    <a class="btn" href="contact.vcf" download="contact.vcf">Պահել կոնտակտը</a>
+    <a class="btn android-only" href="intent:#Intent;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;S.name=Hayk%20Khachatryan;S.phone=%2B374%2093%20868637;S.email=hayk.v.khachatryan%40gmail.com;S.notes=https%3A%2F%2Fgeogeeks.am%2F;S.browser_fallback_url=https%3A%2F%2Fhaykkhachatr.github.io%2Fcard%2Fcontact.vcf;end">Պահել կոնտակտը</a>
+    <p class="hint android-only">Հաջորդ էկրանի վերևում ընտրիր՝ պահել Google հաշվում (էլ. փոստ), թե հեռախոսում։</p>
+    <a class="btn not-android" href="contact.vcf" download="contact.vcf">Պահել կոնտակտը</a>
+    <a class="link android-only" href="contact.vcf" download="contact.vcf">Չբացվե՞ց։ Ներբեռնել .vcf ֆայլը</a>
     <ul>
       <li><a href="tel:+37493868637"><small>Հեռախոս</small>+374 93 868637</a></li>
       <li><a href="mailto:hayk.v.khachatryan@gmail.com"><small>Էլ. փոստ</small>hayk.v.khachatryan@gmail.com</a></li>
