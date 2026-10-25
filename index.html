@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Hayk Khachatryan</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { --bg:#f3f5f8; --surface:#fff; --text:#14181d; --muted:#5b6572; --line:#d9dee5; --accent:#0b6bcb; --accent-text:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#101317; --surface:#1a1e24; --text:#eceff3; --muted:#9aa4b2; --line:#2e353f; --accent:#4b9bf0; --accent-text:#08131f; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 system-ui,"Segoe UI","Noto Sans Armenian",sans-serif; }
+  main { max-width:420px; margin:0 auto; padding:32px 16px 48px; }
+  .card { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px 20px; }
+  .avatar { width:72px; height:72px; border-radius:50%; background:var(--accent); color:var(--accent-text);
+            display:grid; place-items:center; font-size:1.75rem; font-weight:700; margin:0 auto 12px; }
+  h1 { font-size:1.5rem; text-align:center; margin:0; }
+  .role { text-align:center; color:var(--muted); margin:4px 0 0; }
+  .btn { display:block; text-align:center; text-decoration:none; font-weight:700; font-size:1.0625rem;
+         background:var(--accent); color:var(--accent-text); border-radius:12px; padding:14px 16px; margin:20px 0 8px; }
+  ul { list-style:none; margin:16px 0 0; padding:0; }
+  li { border-top:1px solid var(--line); }
+  li a, li span { display:block; padding:12px 4px; color:var(--text); text-decoration:none; overflow-wrap:anywhere; }
+  li small { display:block; color:var(--muted); font-size:0.8125rem; }
+  a:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <div class="avatar" aria-hidden="true">HK</div>
+    <h1>Hayk Khachatryan</h1>
+    
+    <a class="btn" href="contact.vcf" download="contact.vcf">Պահել կոնտակտը</a>
+    <ul>
+      <li><a href="tel:+37493868637"><small>Հեռախոս</small>+374 93 868637</a></li>
+      <li><a href="mailto:hayk.v.khachatryan@gmail.com"><small>Էլ. փոստ</small>hayk.v.khachatryan@gmail.com</a></li>
+      <li><a href="https://geogeeks.am/"><small>Կայք</small>geogeeks.am</a></li>
+    </ul>
+  </div>
+</main>
+</body>
+</html>
