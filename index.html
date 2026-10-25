@@ -6,6 +6,9 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#06100e">
 <title>Hayk Khachatryan</title>
+<meta property="og:title" content="Hayk Khachatryan">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://haykkhachatr.github.io/card/photo/portrait-1000.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2306100e'/%3E%3Cpath d='M16 5l11 11-11 11L5 16z' fill='%23f2c230'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script>if (/Android/i.test(navigator.userAgent)) document.documentElement.classList.add("android");</script>
@@ -41,6 +44,17 @@
   /* ---- դասավորություն ---- */
   .page { position: relative; z-index: 2; max-width: 980px; margin: 0 auto;
     padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(36px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)); }
+  .page > .top, .page > .first, .page > .list, .page > .marquee { position: relative; z-index: 1; }
+
+  /* ---- դիմանկար ---- */
+  .portrait { position: absolute; z-index: 0; top: 0; left: 0; right: 0; height: min(150vw, 78vh); height: min(150vw, 78svh); pointer-events: none;
+    -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%); mask-image: linear-gradient(to bottom, #000 58%, transparent 100%); }
+  .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 8%;
+    filter: brightness(0.86) saturate(0.92) contrast(1.04); animation: reveal 1.6s var(--ease) both; }
+  .portrait::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(6, 16, 14, 0.78) 0, rgba(6, 16, 14, 0) 22%), linear-gradient(to top, rgba(6, 16, 14, 0.35), rgba(12, 132, 149, 0.12)); }
+  .has-photo .first { padding-top: min(48vw, 40vh); }
+
   .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; height: 44px;
     font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute); }
   .mark { display: inline-flex; align-items: center; gap: 10px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -104,6 +118,7 @@
 
   a:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
 
+  @keyframes reveal { from { opacity: 0; transform: scale(1.07); } to { opacity: 1; transform: none; } }
   @keyframes rise { from { transform: translateY(108%); } to { transform: none; } }
   @keyframes up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
   @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
@@ -115,6 +130,15 @@
     .first { min-height: calc(100svh - 170px); }
     .cta { max-width: 460px; }
   }
+  @media (min-width: 900px) {
+    /* նկարը հասնում է էկրանի աջ եզրին, ձախից ձուլվում է ֆոնին */
+    .portrait { left: auto; right: min(0px, calc((980px - 100vw) / 2)); width: max(490px, 44vw); height: min(100vh, 860px); height: min(100svh, 860px);
+      -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); }
+    .portrait img { object-position: 50% 6%;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 32%); mask-image: linear-gradient(to right, transparent 0, #000 32%); }
+    .portrait::after { background: linear-gradient(to bottom, rgba(6, 16, 14, 0.6) 0, rgba(6, 16, 14, 0) 18%); }
+    .has-photo .first { padding-top: 24px; }
+  }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
   }
@@ -125,7 +149,8 @@
 <div class="veil" aria-hidden="true"></div>
 <div class="grain" aria-hidden="true"></div>
 
-<main class="page">
+<main class="page has-photo">
+  <div class="portrait"><img src="photo/portrait-640.jpg" srcset="photo/portrait-640.jpg 640w, photo/portrait-1000.jpg 1000w" sizes="(min-width: 900px) 44vw, 100vw" alt="Hayk Khachatryan" fetchpriority="high"></div>
   <header class="top">
     <span class="mark"><i></i>geogeeks.am</span>
     <span>NFC · Card</span>
